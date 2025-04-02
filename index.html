@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Garzia lab</title>
+    <!-- Garzia Lab icon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="../styles/style.css"/>
+
+    <style>
+      :root {
+        --color-primary: #8A5033;
+        --color-secondary: #87B593;
+        --color-tertiary: #1D2A2A;
+        --color-salvia: #86A59C;
+        --color-light: #f8f5f1;
+        --color-dark: #333333;
+      }
+      
+      body {
+        font-family: 'Roboto', sans-serif;
+        color: var(--color-dark);
+        background-color: var(--color-light);
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+      }
+      
+      .navbar {
+        background-color: white !important;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      }
+      
+      .navbar .nav-link {
+        color: var(--color-tertiary) !important;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      
+      .navbar .nav-link:hover,
+      .navbar .nav-link.active {
+        color: var(--color-salvia) !important;
+      }
+      
+      .btn-primary {
+        background-color: var(--color-primary) !important;
+        border-color: var(--color-primary) !important;
+      }
+      
+      .btn-secondary {
+        background-color: var(--color-secondary) !important;
+        border-color: var(--color-secondary) !important;
+      }
+      
+      .btn-outline-primary {
+        color: var(--color-primary) !important;
+        border-color: var(--color-primary) !important;
+      }
+      
+      .btn-outline-primary:hover {
+        background-color: var(--color-primary) !important;
+        color: white !important;
+      }
+      
+      .btn-tertiary {
+        background-color: var(--color-salvia) !important;
+        border-color: var(--color-salvia) !important;
+        color: white !important;
+      }
+      
+      .btn-outline-tertiary {
+        color: var(--color-salvia) !important;
+        border-color: var(--color-salvia) !important;
+      }
+      
+      .btn-outline-tertiary:hover {
+        background-color: var(--color-salvia) !important;
+        color: white !important;
+      }
+      
+      .text-salvia {
+        color: var(--color-salvia) !important;
+      }
+      
+      .bg-salvia {
+        background-color: var(--color-salvia) !important;
+      }
+      
+      footer {
+        background-color: var(--color-tertiary) !important;
+        color: white;
+      }
+      
+      footer a {
+        color: white !important;
+        transition: color 0.3s ease;
+      }
+      
+      footer a:hover {
+        color: var(--color-salvia) !important;
+        text-decoration: none;
+      }
+      
+      .social-btn {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 5px;
+        transition: transform 0.3s ease;
+      }
+      
+      .social-btn:hover {
+        transform: translateY(-3px);
+        background-color: var(--color-salvia);
+      }
+      
+      .product-card {
+        border-radius: 16px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 25px;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+      
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        border-bottom: 3px solid var(--color-salvia);
+      }
+      
+      .product-img {
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      .product-card:hover .product-img {
+        transform: scale(1.05);
+      }
+      
+      .card-body {
+        padding: 1.5rem;
+        position: relative;
+      }
+      
+      .card-title {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        font-family: 'Playfair Display', serif;
+      }
+      
+      .card-text {
+        color: #666;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      
+      .product-btn {
+        padding: 0.6rem 1.5rem;
+        border-radius: 30px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+      
+      .product-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(134, 165, 156, 0.4);
+      }
+      
+      .product-price {
+        position: absolute;
+        top: -20px;
+        right: 20px;
+        background-color: var(--color-salvia);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      }
+      
+      .hidden-products {
+        display: none;
+      }
+      
+      .product-reveal {
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      
+      .product-reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+
+    
+    <!--Main Navigation-->
+    <header>
+      <!-- Intro settings -->
+      <style>
+        /* Default height for small devices */
+        #intro {
+          height: 80vh;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          margin-top: 0px;
+        }
+
+        /* Height for devices larger than 576px */
+        @media (min-width: 576px) {
+          #intro {
+            height: 80vh;
+          }
+        }
+      </style>
+
+      <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+      <!-- Container wrapper -->
+      <div class="container">
+        <!-- Toggle button -->
+        <button
+          data-mdb-collapse-init
+          class="navbar-toggler"
+          type="button"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="">
+            <img
+              src="images/logo.svg"
+              height="70"
+              alt="MB Motors Evolution Logo"
+              loading="lazy"
+            />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/prodotti/">Prodotti</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/specialita/">Specialità</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ricette/">Ricette</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contatti/">Contatti</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+          <!-- Instagram -->
+          <a
+                  class="nav-link p-2"
+                  href="https://www.instagram.com/"
+                  rel="nofollow"
+                  target="_blank"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+
+          <!-- Facebook -->
+          <a
+                  class="nav-link p-2"
+                  href="https://www.facebook.com/"
+                  rel="nofollow"
+                  target="_blank"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+          <!-- Whatsapp -->
+          <a
+                class="nav-link p-2"
+                href="https://wa.me/"
+                rel="nofollow"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+        </div>
+        <!-- Right elements -->
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+
+      <!-- Background image -->
+      <div
+        id="intro"
+        class="p-5 text-center bg-image shadow-1-strong"
+        style="background-image: url('../images/main_wallpaper.png'); background-attachment: fixed;"
+      >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+              <h1 class="mb-3 display-3 fw-bold">SAPORI AUTENTICI</h1>
+              <h5 class="mb-4">QUALITÀ E TRADIZIONE ITALIANA IN OGNI ASSAGGIO</h5>
+              <a
+                class="btn btn-lg m-2"
+                href="/prodotti/"
+                style="background-color: var(--color-primary); color: white;"
+                role="button"
+                >
+                SCOPRI I NOSTRI PRODOTTI
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Background image -->
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main class="mt-5">
+      <div class="container">
+        
+        <!-- Featured Products Section -->
+        <section class="mb-5">
+          <h2 class="text-center mb-5" style="color: var(--color-secondary);">I Nostri Prodotti in Evidenza</h2>
+          
+          <div class="row">
+            <!-- Product 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card product-card h-100">
+                <div class="overflow-hidden">
+                  <img src="../images/Frittatina-classica.jpg" class="card-img-top product-img" alt="Frittatina Classica">
+                </div>
+                <div class="card-body">
+                  <span class="product-price">€4.50</span>
+                  <h5 class="card-title" style="color: var(--color-primary);">Frittatina Classica</h5>
+                  <p class="card-text">La nostra frittatina classica napoletana con besciamella, piselli e prosciutto cotto. Un'esplosione di sapore.</p>
+                  <a href="#" class="btn product-btn" style="background-color: var(--color-salvia); color: white;">Scopri di più</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card product-card h-100">
+                <div class="overflow-hidden">
+                  <img src="../images/Frittatina-classica.jpg" class="card-img-top product-img" alt="Frittatina Classica">
+                </div>
+                <div class="card-body">
+                  <span class="product-price">€6.90</span>
+                  <h5 class="card-title" style="color: var(--color-primary);">Pasta Artigianale</h5>
+                  <p class="card-text">Pasta trafilata al bronzo, essiccata lentamente per preservare il sapore del grano. Gusto autentico italiano.</p>
+                  <a href="#" class="btn product-btn" style="background-color: var(--color-salvia); color: white;">Scopri di più</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card product-card h-100">
+                <div class="overflow-hidden">
+                  <img src="../images/Frittatina-classica.jpg" class="card-img-top product-img" alt="Frittatina Classica">
+                </div>
+                <div class="card-body">
+                  <span class="product-price">€7.50</span>
+                  <h5 class="card-title" style="color: var(--color-primary);">Conserve Tradizionali</h5>
+                  <p class="card-text">Le nostre conserve fatte secondo le ricette della tradizione italiana. Ingredienti freschi e naturali.</p>
+                  <a href="#" class="btn product-btn" style="background-color: var(--color-salvia); color: white;">Scopri di più</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Hidden Products (Initially Hidden) -->
+          <div class="hidden-products">
+            <div class="row">
+              <!-- Product 4 -->
+              <div class="col-lg-4 col-md-6 mb-4 product-reveal">
+                <div class="card product-card h-100">
+                  <div class="overflow-hidden">
+                    <img src="../images/Frittatina-classica.jpg" class="card-img-top product-img" alt="Frittatina Classica">
+                  </div>
+                  <div class="card-body">
+                    <span class="product-price">€12.90</span>
+                    <h5 class="card-title" style="color: var(--color-primary);">Vino Rosso Toscano</h5>
+                    <p class="card-text">Un vino corposo con note di frutta rossa matura e spezie, perfetto con carni rosse e formaggi stagionati.</p>
+                    <a href="#" class="btn product-btn" style="background-color: var(--color-salvia); color: white;">Scopri di più</a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Product 5 -->
+              <div class="col-lg-4 col-md-6 mb-4 product-reveal">
+                <div class="card product-card h-100">
+                  <div class="overflow-hidden">
+                    <img src="../images/Frittatina-classica.jpg" class="card-img-top product-img" alt="Frittatina Classica">
+                  </div>
+                  <div class="card-body">
+                    <span class="product-price">€8.50</span>
+                    <h5 class="card-title" style="color: var(--color-primary);">Selezione di Formaggi</h5>
+                    <p class="card-text">Una selezione dei nostri migliori formaggi artigianali provenienti da varie regioni d'Italia.</p>
+                    <a href="#" class="btn product-btn" style="background-color: var(--color-salvia); color: white;">Scopri di più</a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Product 6 -->
+              <div class="col-lg-4 col-md-6 mb-4 product-reveal">
+                <div class="card product-card h-100">
+                  <div class="overflow-hidden">
+                    <img src="../images/Frittatina-classica.jpg" class="card-img-top product-img" alt="Frittatina Classica">
+                  </div>
+                  <div class="card-body">
+                    <span class="product-price">€10.90</span>
+                    <h5 class="card-title" style="color: var(--color-primary);">Olio Extra Vergine</h5>
+                    <p class="card-text">Il nostro olio extravergine d'oliva, spremuto a freddo dalle migliori olive italiane. Aroma intenso, sapore genuino.</p>
+                    <a href="#" class="btn product-btn" style="background-color: var(--color-salvia); color: white;">Scopri di più</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-4">
+            <a href="#" id="view-all-products" class="btn btn-outline-primary">Vedi tutti i prodotti</a>
+            <a href="/prodotti/" class="btn btn-outline-primary d-none" id="goto-products">Vai al catalogo completo</a>
+          </div>
+        </section>
+
+        <hr class="my-5" style="background-color: var(--color-salvia);" />
+
+        <!-- About Section -->
+        <section class="my-5">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <img src="https://via.placeholder.com/600x400?text=La+Nostra+Storia" class="img-fluid rounded shadow" alt="La Nostra Storia">
+            </div>
+            <div class="col-lg-6">
+              <h2 style="color: var(--color-salvia);">La Nostra Storia</h2>
+              <p>Da oltre 30 anni, la nostra azienda si dedica alla produzione di alimenti genuini, seguendo le antiche ricette della tradizione italiana. La nostra missione è portare sulle vostre tavole prodotti di alta qualità, realizzati con ingredienti selezionati e tecniche artigianali.</p>
+              <p>Ogni prodotto racconta una storia di passione, dedizione e rispetto per la natura e per il territorio.</p>
+              <a href="/chi-siamo/" class="btn" style="background-color: var(--color-secondary); color: white;">Scopri di più</a>
+            </div>
+          </div>
+        </section>
+
+        <hr class="my-5" style="background-color: var(--color-salvia);" />
+
+        <!--Section: Contattaci: START-->
+        <section class="text-center my-5">
+          <h2 class="mb-5" style="color: var(--color-secondary);"><strong>Contattaci</strong></h2>
+          <p class="text-muted mb-4">
+            Hai delle domande sui nostri prodotti? Vuoi saperne di più sulla nostra azienda? Non esitare a contattarci, saremo felici di rispondere a ogni tua domanda.
+          </p>
+          <a class="btn" href="/contatti/" style="font-size: larger; background-color: var(--color-salvia); color: white;" data-mdb-ripple-init>Contattaci</a>
+        </section>
+        <!--Section: Contattaci: END-->
+
+      </div>
+    </main>
+    <!--Main layout: END-->
+
+    <!--Footer-->
+    <footer class="text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h5 class="mb-3">Garzia</h5>
+            <p>Qualità e tradizione italiana dal 1990. I nostri prodotti raccontano la storia della nostra terra e delle nostre tradizioni.</p>
+          </div>
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h5 class="mb-3">Contatti</h5>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-map-marker-alt me-2"></i> Via Roma 123, 00100 Roma</li>
+              <li><i class="fas fa-phone me-2"></i> +39 123 456 7890</li>
+              <li><i class="fas fa-envelope me-2"></i> info@garzia.it</li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="mb-3">Seguici</h5>
+            <div class="d-flex justify-content-center justify-content-lg-start">
+              <a class="social-btn" style="background-color: #ac2bac;" href="https://www.instagram.com/" role="button">
+                <i class="fab fa-instagram"></i>
+              </a>
+            
+              <a class="social-btn" style="background-color: #3b5998;" href="https://www.facebook.com/" role="button">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a class="social-btn" style="background-color: #25d366;" href="https://wa.me/" role="button">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-center p-3 mt-4" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2025 Copyright:
+        <a class="text-white" href="">www.garzia.it</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!--Footer-->
+
+
+    <!-- MDB -->
+  <script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.1.0/js/mdb.umd.min.js"
+  ></script>
+
+   <!-- Custom scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get references to the elements
+      const viewAllButton = document.getElementById('view-all-products');
+      const gotoProductsButton = document.getElementById('goto-products');
+      const hiddenProducts = document.querySelector('.hidden-products');
+      const productRevealElements = document.querySelectorAll('.product-reveal');
+      
+      // Add click event listener to the "View All Products" button
+      viewAllButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Show the hidden products container
+        hiddenProducts.style.display = 'block';
+        
+        // Change button visibility
+        viewAllButton.classList.add('d-none');
+        gotoProductsButton.classList.remove('d-none');
+        
+        // Animate each product with a staggered delay
+        productRevealElements.forEach((element, index) => {
+          setTimeout(() => {
+            element.classList.add('show');
+          }, 150 * index); // 150ms delay between each item
+        });
+        
+        // Scroll to the first new product
+        setTimeout(() => {
+          productRevealElements[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      });
+    });
+  </script>
+  </body>
+
+</html>
